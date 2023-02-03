@@ -202,6 +202,14 @@
     <Compile Include="Migrations\202302030330227_editDetailNews.designer.cs">
       <DependentUpon>202302030330227_editDetailNews.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302030639201_updateActive.cs" />
+    <Compile Include="Migrations\202302030639201_updateActive.designer.cs">
+      <DependentUpon>202302030639201_updateActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302030652322_updateActive1.cs" />
+    <Compile Include="Migrations\202302030652322_updateActive1.designer.cs">
+      <DependentUpon>202302030652322_updateActive1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3199,6 +3207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302030330227_editDetailNews.resx">
       <DependentUpon>202302030330227_editDetailNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302030639201_updateActive.resx">
+      <DependentUpon>202302030639201_updateActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302030652322_updateActive1.resx">
+      <DependentUpon>202302030652322_updateActive1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

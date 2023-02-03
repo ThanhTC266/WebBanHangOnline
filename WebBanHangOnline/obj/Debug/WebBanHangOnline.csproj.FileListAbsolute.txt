@@ -114,3 +114,5 @@ C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\CKFind
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\CKFinder.pdb
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateData2News.resources
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.editDetailNews.resources
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive.resources
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive1.resources
