@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202302021012419_updateData2News.designer.cs">
       <DependentUpon>202302021012419_updateData2News.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302030330227_editDetailNews.cs" />
+    <Compile Include="Migrations\202302030330227_editDetailNews.designer.cs">
+      <DependentUpon>202302030330227_editDetailNews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -3192,6 +3196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302021012419_updateData2News.resx">
       <DependentUpon>202302021012419_updateData2News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302030330227_editDetailNews.resx">
+      <DependentUpon>202302030330227_editDetailNews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
