@@ -116,3 +116,4 @@ C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.editDetailNews.resources
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive.resources
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive1.resources
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.ChangeLengthModels.resources

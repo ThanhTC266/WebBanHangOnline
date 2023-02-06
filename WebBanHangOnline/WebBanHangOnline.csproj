@@ -176,6 +176,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,6 +210,10 @@
     <Compile Include="Migrations\202302030652322_updateActive1.cs" />
     <Compile Include="Migrations\202302030652322_updateActive1.designer.cs">
       <DependentUpon>202302030652322_updateActive1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302060435091_ChangeLengthModels.cs" />
+    <Compile Include="Migrations\202302060435091_ChangeLengthModels.designer.cs">
+      <DependentUpon>202302060435091_ChangeLengthModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3128,6 +3133,9 @@
     <Content Include="Content\ckeditor\skins\moono\readme.md" />
     <Content Include="Content\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3213,6 +3221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302030652322_updateActive1.resx">
       <DependentUpon>202302030652322_updateActive1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302060435091_ChangeLengthModels.resx">
+      <DependentUpon>202302060435091_ChangeLengthModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
