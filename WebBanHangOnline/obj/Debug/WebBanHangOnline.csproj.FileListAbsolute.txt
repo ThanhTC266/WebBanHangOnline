@@ -117,3 +117,7 @@ C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive.resources
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.updateActive1.resources
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.ChangeLengthModels.resources
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.dll
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.Mvc.dll
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.xml
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.Mvc.xml

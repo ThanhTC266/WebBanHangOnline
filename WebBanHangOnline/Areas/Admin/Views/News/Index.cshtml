@@ -1,4 +1,6 @@
-﻿@model IEnumerable<WebBanHangOnline.Models.EF.News> 
+﻿@model PagedList.PagedList<WebBanHangOnline.Models.EF.News> 
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Danh sách tin tức";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -57,9 +59,8 @@
                         <th>Hình ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Ngày tạo</th>
-                        <th>Trạng thái</th>
                         <th>HIển thị</th>
-                        <th></th>
+                        <th style="width:150px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,6 +100,12 @@
                 </tbody>
             </table>
 
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6" style="text-align:right">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
