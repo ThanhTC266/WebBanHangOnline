@@ -121,3 +121,4 @@ C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedL
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.Mvc.dll
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.xml
 C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\bin\PagedList.Mvc.xml
+C:\WORK\CSharp\Program\NgoXuanHoang\WebBanHangOnline\WebBanHangOnline\obj\Debug\WebBanHangOnline.Migrations.UpdateProductCategory.resources
