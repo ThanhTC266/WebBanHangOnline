@@ -3154,6 +3154,7 @@
     <Content Include="Areas\Admin\Views\ProductCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Add.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Test.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3165,6 +3166,18 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\images\10_1.PNG" />
+    <Content Include="Uploads\images\2-1675324917-491-width740height494.jpg" />
+    <Content Include="Uploads\images\3-1674026152-931-width780height520.jpg" />
+    <Content Include="Uploads\images\5-1675640323-174-width740height493.jpg" />
+    <Content Include="Uploads\images\5_1.PNG" />
+    <Content Include="Uploads\images\Muc-gia-bu-de-nang-cap-len-Galaxy-S23-series-gay-soc-tai-Viet-Nam-dscf0018-1675323727-990-width1000height667.jpg" />
+    <Content Include="Uploads\_thumbs\Images\10_1.PNG" />
+    <Content Include="Uploads\_thumbs\Images\2-1675324917-491-width740height494.jpg" />
+    <Content Include="Uploads\_thumbs\Images\3-1674026152-931-width780height520.jpg" />
+    <Content Include="Uploads\_thumbs\Images\5-1675640323-174-width740height493.jpg" />
+    <Content Include="Uploads\_thumbs\Images\5_1.PNG" />
+    <Content Include="Uploads\_thumbs\Images\Muc-gia-bu-de-nang-cap-len-Galaxy-S23-series-gay-soc-tai-Viet-Nam-dscf0018-1675323727-990-width1000height667.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3204,6 +3217,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Content\ckfinder\userfiles\" />
+    <Folder Include="Uploads\files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
