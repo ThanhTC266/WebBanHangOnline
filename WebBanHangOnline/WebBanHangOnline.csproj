@@ -185,6 +185,7 @@
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,6 +228,14 @@
     <Compile Include="Migrations\202302070641233_UpdateProductCategory.designer.cs">
       <DependentUpon>202302070641233_UpdateProductCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302170848576_CreateStudent.cs" />
+    <Compile Include="Migrations\202302170848576_CreateStudent.designer.cs">
+      <DependentUpon>202302170848576_CreateStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302170854197_CreateStudent2.cs" />
+    <Compile Include="Migrations\202302170854197_CreateStudent2.designer.cs">
+      <DependentUpon>202302170854197_CreateStudent2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -241,6 +250,7 @@
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
+    <Compile Include="Models\EF\Student.cs" />
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -3155,6 +3165,7 @@
     <Content Include="Areas\Admin\Views\ProductCategory\Add.cshtml" />
     <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Test.cshtml" />
+    <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3259,6 +3270,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302070641233_UpdateProductCategory.resx">
       <DependentUpon>202302070641233_UpdateProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302170848576_CreateStudent.resx">
+      <DependentUpon>202302170848576_CreateStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302170854197_CreateStudent2.resx">
+      <DependentUpon>202302170854197_CreateStudent2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

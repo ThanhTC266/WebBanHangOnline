@@ -40,7 +40,7 @@ namespace WebBanHangOnline.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
-       
+        public DbSet<Student> Students { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
