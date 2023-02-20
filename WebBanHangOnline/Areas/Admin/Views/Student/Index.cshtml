@@ -66,6 +66,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="exampleInputName">Họ và tên</label>
+                    <input type="hidden" id="exampleId" value="0"/>
                     <input type="text" class="form-control" id="exampleInputName" placeholder="Nhập họ và tên">
                     <span class="error text-danger"></span>
                 </div>
@@ -124,61 +125,83 @@
                     });
                 }
             });
-
-            function LoadData() {
-                $.ajax({
-                    url: '/admin/student/getdata',
-                    type: 'GET',
-                    success: function (res) {
-                        if (res.TotalItems > 0) {
-                            var items = res.Data;
-                            var html = "";
-                            for (let i = 0; i < res.TotalItems; i++) {
-                                html += "<tr>";
-                                html += "<td>" + (i + 1) + "</td>";
-                                html += "<td>" + items[i].Name + "</td>";
-                                html += "<td>" + items[i].Age + "</td>";
-                                html += "<td><a href='#' class='btn btn-warning' >Sửa</a> | <a href='#' class = 'btn btn-danger'>Xóa</a></td>";
-                                html += "</tr>"; 
-
-                            }
-                            $('#show_data').html(html);
-                        }
-                        console.log(res);
-                    }
-                });
-            }
-
-            function Validate() {
-                var check = false;
-
-                var name = $('#exampleInputName').val();
-                if (name === '') {
-                    $('#exampleInputName').next().html('Bạn chưa nhập họ và tên');
-                    check = false;
-                } else {
-                    $('#exampleInputName').next().html('')
-                    check = true;
-                }
-
-                var age = $('#exampleInputAge').val();
-                if (age === '') {
-                    $('#exampleInputAge').next().html('Bạn chưa nhập tuổi');
-                    check = false;
-                } else {
-                    $('#exampleInputAge').next().html('')
-                    check = true;
-                }
-                return check;
-            }
-
-            function ResetInput() {
-                $('#exampleInputName').val('');
-                $('#exampleInputAge').val('');
-                $('#exampleInputClass').val('');
-
-            }
+            $('body').on('click', '.btnEdit', function () {
+                var id = $(this).data('id');
+                GetDataById(id);
+            });
+            
         });
+
+        function LoadData() {
+            $.ajax({
+                url: '/admin/student/getdata',
+                type: 'GET',
+                success: function (res) {
+                    if (res.TotalItems > 0) {
+                        var items = res.Data;
+                        var html = "";
+                        for (let i = 0; i < res.TotalItems; i++) {
+                            html += "<tr>";
+                            html += "<td>" + (i + 1) + "</td>";
+                            html += "<td>" + items[i].Name + "</td>";
+                            html += "<td>" + items[i].Age + "</td>";
+                            html += "<td><a data-id='"+ items[i].Id +"' href='#' class='btn btn-warning btnEdit' >Sửa</a> | <a href='#' class = 'btn btn-danger'>Xóa</a></td>";
+                            html += "</tr>";
+
+                        }
+                        $('#show_data').html(html);
+                    }
+                    console.log(res);
+                }
+            });
+        }
+
+        function GetDataById(id) {
+            $.ajax({
+                url: '/admin/student/getbyid',
+                type: 'GET',
+                data: { id: id },
+                success: function (res) {
+                    if (res.data != 5) {
+                        $('#exampleInputName').val(res.data.Name);
+                        $('#exampleInputAge').val(res.data.Age);
+                        $('#exampleInputClass').val(res.data.Class);
+                        $('#exampleId ').val(res.data.Id);
+                        $('#modalCreatedUpdate').modal('show');
+                    }
+                }
+            })
+        }
+
+        function Validate() {
+            var check = false;
+
+            var name = $('#exampleInputName').val();
+            if (name === '') {
+                $('#exampleInputName').next().html('Bạn chưa nhập họ và tên');
+                check = false;
+            } else {
+                $('#exampleInputName').next().html('')
+                check = true;
+            }
+
+            var age = $('#exampleInputAge').val();
+            if (age === '') {
+                $('#exampleInputAge').next().html('Bạn chưa nhập tuổi');
+                check = false;
+            } else {
+                $('#exampleInputAge').next().html('')
+                check = true;
+            }
+            return check;
+        }
+
+        function ResetInput() {
+            $('#exampleInputName').val('');
+            $('#exampleInputAge').val('');
+            $('#exampleInputClass').val('');
+
+        }
 
     </script>
     }

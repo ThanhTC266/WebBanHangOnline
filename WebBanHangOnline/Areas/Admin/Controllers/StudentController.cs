@@ -24,8 +24,21 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             return Json(new { Data = results, TotalItems = results.Count }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetById(int id)
+        {
+            var item = _context.Students.Find(id);
+            return Json(new { data = item }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public ActionResult Create(Student model) {
+            if(model.Id > 0)
+            {
+                var student = _context.Students.Find(model.Id);
+                _context.Entry(student).State = System.Data.Entity.EntityState.Modified;
+                _context.SaveChanges();
+                return Json(new { success = true });
+            }
             model.CreatedDate = DateTime.Now;
             _context.Students.Add(model);
             try
@@ -39,6 +52,15 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
             }
             
             
+        }
+
+        [HttpPost]
+        public ActionResult Update(Student request)
+        {
+            var student = _context.Students.Find(request.Id);
+            _context.Entry(student).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
+            return Json(new { success = false });
         }
     }
 }
