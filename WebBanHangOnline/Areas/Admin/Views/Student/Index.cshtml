@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebBanHangOnline.Models.EF.Student>
+﻿@*@model IEnumerable<WebBanHangOnline.Models.EF.Student>*@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -19,7 +19,10 @@
             <td></td>
         </tr>
     </thead>
-    @if (Model != null && Model.Any())
+    <tbody id="show_data">
+
+    </tbody>
+    @*@if (Model != null && Model.Any())
     {
         var i = 1;
         <tbody>
@@ -42,7 +45,7 @@
                 <td colspan="4">Không có bản ghi nào</td>
             </tr>
         </tbody>
-    }
+    }*@
 </table>
 
 <!-- Button trigger modal -->
@@ -93,6 +96,7 @@
 @section scripts{
     <script>
         $(document).ready(function () {
+            LoadData();
             $('#btnLuu').click(function () {
                 var name = $('#exampleInputName').val();
                 var age = $('#exampleInputAge').val();
@@ -103,20 +107,47 @@
                     Class: _class
                 };
                 if (Validate()) {
-
-                }
-
-                $.ajax({
-                    url: '/admin/student/Create',
-                    type: 'POST',
-                    data: model,
-                    success: function (res) {
-                        if (res.success) {
-                            window.location.reload();
+                    $.ajax({
+                        url: '/admin/student/Create',
+                        type: 'POST',
+                        data: model,
+                        success: function (res) {
+                            if (res.success) {
+                                if (res.success) {
+                                    LoadData();
+                                    ResetInput();
+                                    $('#modalCreateUpdate').modal('hide');
+                                }
+                              
+                            }
                         }
+                    });
+                }
+            });
+
+            function LoadData() {
+                $.ajax({
+                    url: '/admin/student/getdata',
+                    type: 'GET',
+                    success: function (res) {
+                        if (res.TotalItems > 0) {
+                            var items = res.Data;
+                            var html = "";
+                            for (let i = 0; i < res.TotalItems; i++) {
+                                html += "<tr>";
+                                html += "<td>" + (i + 1) + "</td>";
+                                html += "<td>" + items[i].Name + "</td>";
+                                html += "<td>" + items[i].Age + "</td>";
+                                html += "<td><a href='#' class='btn btn-warning' >Sửa</a> | <a href='#' class = 'btn btn-danger'>Xóa</a></td>";
+                                html += "</tr>"; 
+
+                            }
+                            $('#show_data').html(html);
+                        }
+                        console.log(res);
                     }
                 });
-            })
+            }
 
             function Validate() {
                 var check = false;
@@ -139,6 +170,13 @@
                     check = true;
                 }
                 return check;
+            }
+
+            function ResetInput() {
+                $('#exampleInputName').val('');
+                $('#exampleInputAge').val('');
+                $('#exampleInputClass').val('');
+
             }
         });
 
