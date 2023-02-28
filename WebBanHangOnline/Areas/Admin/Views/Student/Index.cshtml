@@ -102,10 +102,12 @@
                 var name = $('#exampleInputName').val();
                 var age = $('#exampleInputAge').val();
                 var _class = $('#exampleInputClass').val();
+                var _id = $('#exampleId').val();
                 var model = {
                     Name: name,
                     Age: age,
-                    Class: _class
+                    Class: _class,
+                    Id: _id
                 };
                 if (Validate()) {
                     $.ajax({
@@ -119,7 +121,6 @@
                                     ResetInput();
                                     $('#modalCreateUpdate').modal('hide');
                                 }
-                              
                             }
                         }
                     });
@@ -129,7 +130,6 @@
                 var id = $(this).data('id');
                 GetDataById(id);
             });
-            
         });
 
         function LoadData() {
@@ -145,9 +145,8 @@
                             html += "<td>" + (i + 1) + "</td>";
                             html += "<td>" + items[i].Name + "</td>";
                             html += "<td>" + items[i].Age + "</td>";
-                            html += "<td><a data-id='"+ items[i].Id +"' href='#' class='btn btn-warning btnEdit' >Sửa</a> | <a href='#' class = 'btn btn-danger'>Xóa</a></td>";
+                            html += "<td><a data-id='" + items[i].Id +"' href='#' class='btn btn-warning btnEdit' id='modalCreateUpdate' >Sửa</a> | <a href='#' class = 'btn btn-danger'>Xóa</a></td>";
                             html += "</tr>";
-
                         }
                         $('#show_data').html(html);
                     }
@@ -162,7 +161,7 @@
                 type: 'GET',
                 data: { id: id },
                 success: function (res) {
-                    if (res.data != 5) {
+                    if (res.data != null) {
                         $('#exampleInputName').val(res.data.Name);
                         $('#exampleInputAge').val(res.data.Age);
                         $('#exampleInputClass').val(res.data.Class);
@@ -180,6 +179,7 @@
             if (name === '') {
                 $('#exampleInputName').next().html('Bạn chưa nhập họ và tên');
                 check = false;
+              
             } else {
                 $('#exampleInputName').next().html('')
                 check = true;
@@ -189,6 +189,7 @@
             if (age === '') {
                 $('#exampleInputAge').next().html('Bạn chưa nhập tuổi');
                 check = false;
+              
             } else {
                 $('#exampleInputAge').next().html('')
                 check = true;

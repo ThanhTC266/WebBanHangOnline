@@ -34,8 +34,11 @@ namespace WebBanHangOnline.Areas.Admin.Controllers
         public ActionResult Create(Student model) {
             if(model.Id > 0)
             {
-                var student = _context.Students.Find(model.Id);
-                _context.Entry(student).State = System.Data.Entity.EntityState.Modified;
+                var item = _context.Students.Find(model.Id);
+                item.Name = model.Name;
+                item.Age= model.Age;
+                item.Class = model.Class;
+                _context.Entry(item).State = System.Data.Entity.EntityState.Modified;
                 _context.SaveChanges();
                 return Json(new { success = true });
             }

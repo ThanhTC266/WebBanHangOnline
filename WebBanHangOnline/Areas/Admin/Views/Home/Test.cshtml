@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hệ thống quản lý</title>
+    <title>Table Form Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="table-form.js"></script>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,405 +33,321 @@
     <link rel="stylesheet" href="~/Content/clients/dist/css/adminlte.min.css">
     <!-- PagedList style -->
     <link href="~/Content\PagedList.css" rel="stylesheet" />
+
 </head>
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            @RenderSection("naviheader", required: false)
+<body>
+    <form action="" id="new-application-step3">
+        <div class="card">
+            <div class="card-body border-0 row dataTables_wrapper">
+                <div class="col-sm-12">
+                    <table class="table table-hover table-bordered table-striped dataTable dtr-inline" aria-describedby="example2_info" id="newApplicationStep3Table">
+                        <thead class="text-center">
+                            <tr>
+                                <th width="5%">Seq</th>
+                                <th width="45%">Name</th>
+                                <th width="10%">Gender</th>
+                                <th width="10%">Age</th>
+                                <th width="15%">HK ID</th>
+                                <th width="15%">Passport No.</th>
+                                @*<th width="10%">Options</th>*@
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @{
+                                var i = 1;
+                                while (i <= 10)
+                                {
+                                    <tr class="userinfo ">
+                                        <td class="pt-3">@i</td>
+                                        <td><input class="form-control border-0 " type="text" name="newApplicationStep3Name" placeholder="Name" /></td>
+                                        <td>
+                                            <select class="form-control border-0 " name="newApplicationStep3Gender">
+                                                <option value="0" selected="" disabled="">-SELECT-</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </td>
+                                        <td><input class="form-control border-0 " type="number" name="newApplicationStep3Age" placeholder="Age" /></td>
+                                        <td><input class="form-control border-0 " type="text" name="newApplicationStep3HKID" placeholder="HKID" /></td>
+                                        <td><input class="form-control border-0 " type="text" name="newApplicationStep3PassportNo" placeholder="PassportNo" /></td>
+                                        @*<td><input type="button" value="Delete" onclick="deleteRow(this)" /></td>*@
+                                    </tr>
+                                    i++;
+                                }
+                            }
 
-            <div class="container">
-                <div class="row align-items-start">
-                    <div class="col">
-                        One of three columns
-                    </div>
-                    <div class="col">
-                        One of three columns
-                    </div>
-                    <div class="col">
-                        One of three columns
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /col-sm-12-->
+
+            </div>
+
+            <div class="card-footer row">
+                <div class="col-sm-12 col-md-3">
+                    <div class="dataTables_info " id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                </div>
+                <div class="col-sm-12 col-md-1">
+                    <button type="button" onclick="insRow()">Add</button>
+                </div>
+                <div class="col-sm-12 col-md-1">
+                    <button type="button" id="newApplicationStep3">Check table</button>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="dataTables_paginate paging_simple_numbers justify-content-end float-right" id="example2_paginate">
+                        <ul class="pagination border-danger">
+                            <li class="paginate_button page-item previous disabled" id="example2_previous">
+                                <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                            </li>
+                            <li class="paginate_button page-item active">
+                                <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                            </li>
+                            <li class="paginate_button page-item ">
+                                <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                            </li>
+                            <li class="paginate_button page-item next" id="example2_next">
+                                <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col">
-                        One of three columns
+            </div>
+            <!-- /.row-->
+            <!-- /.card-body -->
+        </div>
+
+        <div class="card border-0">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <label>Plan Selection :</label>
+                        <span>ASIA PLAN</span>
                     </div>
-                    <div class="col">
-                        One of three columns
-                    </div>
-                    <div class="col">
-                        One of three columns
+                    <div>
+                        <label>Premimum Package :</label>
+                        <span>Individual (HK $ 142.00 per insured)</span>
                     </div>
                 </div>
-                <div class="row align-items-end">
-                    <div class="col">
-                        One of three columns
-                    </div>
-                    <div class="col">
-                        One of three columns
-                    </div>
-                    <div class="col">
-                        One of three columns
+                <div class="col">
+                    <div class="row pt-1 h-100">
+                        <div class="col-6"></div>
+                        <div class="col-3 h-100 align-middle justify-content-center">
+                            <button type="button" class="btn btn-outline-danger btn-block btn-lg">Back</button>
+                        </div>
+                        <div class="col-3 h-100 align-middle justify-content-center">
+                            <button type="submit" class="btn btn-danger btn-block btn-lg">Next</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+        </div>
+    </form>
 
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/Content/clients/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/Content/clients/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="~/Content/clients/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="~/Content/clients/index3.html" class="brand-link">
-                <img src="~/Content/clients/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Web bán hàng</span>
-            </a>
+    <h1>Table Form Example</h1>
+    <form id="table-form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="row1col1"></td>
+                    <td><input type="text" name="row1col2"></td>
+                    <td><input type="text" name="row1col3"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row2col1"></td>
+                    <td><input type="text" name="row2col2"></td>
+                    <td><input type="text" name="row2col3"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row3col1"></td>
+                    <td><input type="text" name="row3col2"></td>
+                    <td><input type="text" name="row3col3"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+    @section scripts{
+        <script>
 
-            @Html.Partial("_PartialSideBar")
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        @RenderBody()
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0-rc
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-    <!-- jQuery -->
-    <script src="~/Content/clients/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="~/Content/clients/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="~/Content/clients/plugins/select2/js/select2.full.min.js"></script>
-    <!-- Bootstrap4 Duallistbox -->
-    <script src="~/Content/clients/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-    <!-- InputMask -->
-    <script src="~/Content/clients/plugins/moment/moment.min.js"></script>
-    <script src="~/Content/clients/plugins/inputmask/jquery.inputmask.min.js"></script>
-    <!-- date-range-picker -->
-    <script src="~/Content/clients/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap color picker -->
-    <script src="~/Content/clients/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="~/Content/clients/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Bootstrap Switch -->
-    <script src="~/Content/clients/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-    <!-- BS-Stepper -->
-    <script src="~/Content/clients/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-    <!-- dropzonejs -->
-    <script src="~/Content/clients/plugins/dropzone/min/dropzone.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/Content/clients/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    @*<script src="~/Content/clients/dist/js/demo.js"></script>*@
-    <!-- Page specific script -->
-    <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-            //Money Euro
-            $('[data-mask]').inputmask()
-
-            //Date picker
-            $('#reservationdate').datetimepicker({
-                format: 'L'
+            $(document).ready(function () {
+                $('#table-form').submit(function (event) {
+                    event.preventDefault();
+                    var tableData = [];
+                    $('table tbody tr').each(function (row, tr) {
+                        var rowData = {};
+                        $(tr).find('input').each(function (col, td) {
+                            rowData[$(td).attr('name')] = $(td).val();
+                        });
+                        tableData.push(rowData);
+                    });
+                    console.log(tableData);
+                });
             });
 
-            //Date and time picker
-            $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+            $(document).ready(function () {
+    jQuery.validator.addMethod("ageInRange", function (value, element) {
+        return value > 0 && value < 150;
+    }, 'Not allow less than 0 and bigger than 150');
 
-            //Date range picker
-            $('#reservation').daterangepicker()
-            //Date range picker with time picker
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                locale: {
-                    format: 'MM/DD/YYYY hh:mm A'
-                }
-            })
-            //Date range as a button
-            $('#daterange-btn').daterangepicker(
-                {
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment()
-                },
-                function (start, end) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-                }
-            )
+    $("#newApplicationStep3").validate({
+        rules: {
+            newApplicationStep3Name: {
+                required: true,
+                maxlength: 40
+            },
+            newApplicationStep3Gender: {
+                required: true
 
-            //Timepicker
-            $('#timepicker').datetimepicker({
-                format: 'LT'
-            })
-
-            //Bootstrap Duallistbox
-            $('.duallistbox').bootstrapDualListbox()
-
-            //Colorpicker
-            $('.my-colorpicker1').colorpicker()
-            //color picker with addon
-            $('.my-colorpicker2').colorpicker()
-
-            $('.my-colorpicker2').on('colorpickerChange', function (event) {
-                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-            })
-
-            $("input[data-bootstrap-switch]").each(function () {
-                $(this).bootstrapSwitch('state', $(this).prop('checked'));
-            })
-
-        })
-        // BS-Stepper Init
-        document.addEventListener('DOMContentLoaded', function () {
-            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-        })
-
-        // DropzoneJS Demo Code Start
-        Dropzone.autoDiscover = false
-
-        // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-        var previewNode = document.querySelector("#template")
-        previewNode.id = ""
-        var previewTemplate = previewNode.parentNode.innerHTML
-        previewNode.parentNode.removeChild(previewNode)
-
-        var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-            url: "/target-url", // Set the url
-            thumbnailWidth: 80,
-            thumbnailHeight: 80,
-            parallelUploads: 20,
-            previewTemplate: previewTemplate,
-            autoQueue: false, // Make sure the files aren't queued until manually added
-            previewsContainer: "#previews", // Define the container to display the previews
-            clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-        })
-
-        myDropzone.on("addedfile", function (file) {
-            // Hookup the start button
-            file.previewElement.querySelector(".start").onclick = function () { myDropzone.enqueueFile(file) }
-        })
-
-        // Update the total progress bar
-        myDropzone.on("totaluploadprogress", function (progress) {
-            document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-        })
-
-        myDropzone.on("sending", function (file) {
-            // Show the total progress bar when upload starts
-            document.querySelector("#total-progress").style.opacity = "1"
-            // And disable the start button
-            file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-        })
-
-        // Hide the total progress bar when nothing's uploading anymore
-        myDropzone.on("queuecomplete", function (progress) {
-            document.querySelector("#total-progress").style.opacity = "0"
-        })
-
-        // Setup the buttons for all transfers
-        // The "add files" button doesn't need to be setup because the config
-        // `clickable` has already been specified.
-        document.querySelector("#actions .start").onclick = function () {
-            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+            },
+            newApplicationStep3Age: {
+                required: true,
+                ageInRange: true
+            },
+            newApplicationStep3HKID: {
+                required: true,
+                maxlength: 15
+            },
+            newApplicationStep3PassportNo: {
+                required: true,
+                maxlength: 15
+            }
+        },
+        messages: {
+            newApplicationStep3Name: {
+                required: "Please input Name!"
+            },
+            newApplicationStep3Age: {
+                required: "Please input Age!"
+            },
+            newApplicationStep3HKID: {
+                required: "Please input HKID!"
+            },
+            newApplicationStep3PassportNo: {
+                required: "Please input PassportNo!"
+            },
         }
-        document.querySelector("#actions .cancel").onclick = function () {
-            myDropzone.removeAllFiles(true)
-        }
-          // DropzoneJS Demo Code End</script>
-    <script src="~/Content/ckfinder/ckfinder.js"></script>
-    <script src="~/Content/ckeditor/ckeditor.js"></script>
-    @RenderSection("scripts", required: false)
+
+    });
+});
+
+
+//For delete row
+
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById('newApplicationStep3Table').deleteRow(i);
+}
+// For add row
+function insRow() {
+    var x = document.getElementById('newApplicationStep3Table').insertRow(document.getElementById('newApplicationStep3Table').rows.length);
+    var y1 = x.insertCell(0);
+    var y2 = x.insertCell(1);
+    var y3 = x.insertCell(2);
+    var y4 = x.insertCell(3);
+    var y5 = x.insertCell(4);
+    var y6 = x.insertCell(5);
+    /*var y7 = x.insertCell(6);*/
+    y1.innerHTML = '<td class="pt-3">@i</td>'
+    y2.innerHTML = '<input class="form-control border-0 " type="text" name="newApplicationStep3Name" placeholder="Name"/>'
+    y3.innerHTML = '<select class="form-control border-0 " name="newApplicationStep3Gender"><option value = "0" selected = "" disabled = "">-SELECT-</option><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>'
+    y4.innerHTML = '<input class="form-control border-0 " type="number" name="newApplicationStep3Age" placeholder="Age"/>'
+    y5.innerHTML = '<input class="form-control border-0 " type="text" name="newApplicationStep3HKID" placeholder="HKID"/>'
+    y6.innerHTML = '<input class="form-control border-0 " type="text" name="newApplicationStep3PassportNo" placeholder="PassportNo"/>'
+    /* y7.innerhtml = '<input type="button" value="delete" onclick="deleterow(this)" />'  */
+
+}
+
+//for get value from row
+function myFunction() {
+    //for <td>
+    var x = document.getElementById("newApplicationStep3Table").rows[0].cells.length;
+    document.getElementById("demo").innerHTML = "Found " + x + " cells in the first td element.";
+    var arr = new Array();
+    //for <tr>
+    //var x = document.getElementById("myTable").rows.length;
+    //document.getElementById("demo").innerHTML=document.getElementById("myTable").rows[0].cells[1].innerHTML;
+    //alert(document.getElementById("myTable").rows[0].cells[1].innerHTML);
+    for (i = 0; i < document.getElementById("newApplicationStep3Table").rows.length; i++) {
+        //s = "test-"+i;
+        arr[i] = { "cell1": document.getElementById("newApplicationStep3Table").rows[i].cells[0].innerHTML, "cell2": document.getElementById("newApplicationStep3Table").rows[i].cells[1].innerHTML };
+    }
+
+    var answer = confirm("Are you sure?")
+    var json = { errorCode: 1000, message: 'success', data: arr };
+    if (answer) {
+        alert(JSON.stringify(json));
+    }
+    else {
+
+    }
+}
+        </script>
+
+    }
 </body>
-</html>
+        </html>
 
 
-@*<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@ViewBag.Title - My ASP.NET Application</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        @*<!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>@ViewBag.Title - My ASP.NET Application</title>
+                @Styles.Render("~/Content/css")
+                @Scripts.Render("~/bundles/modernizr")
+            </head>
+            <body>
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
+
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    </footer>
                 </div>
-            </div>
-        </div>
 
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
-        </div>
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
-    </html>*@
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
+            </body>
+            </html>*@
 
