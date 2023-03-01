@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "GPTSubmitTable3";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <select>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </td>
+            <td><input type="text"/></td>
+        </tr>
+        <tr>
+            <td>
+                <select>
+                    <option value="option4">Option 4</option>
+                    <option value="option5">Option 5</option>
+                    <option value="option6">Option 6</option>
+                </select>
+            </td>
+            <td><input type="text" /></td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="btn">Get Data</button>
+
+<script>
+    $(document).ready(function () {
+        $("#btn").click(function () {
+            var data = [];
+
+            $("#myTable tbody tr").each(function () {
+                var option = $(this).find("td:first-child select").val();
+                var number = $(this).find("td:last-child").val();
+
+                var obj = {
+                    option: option,
+                    number: parseInt(number)
+                };
+
+                data.push(obj);
+            });
+
+            console.log(data);
+        });
+    });
+</script>
+

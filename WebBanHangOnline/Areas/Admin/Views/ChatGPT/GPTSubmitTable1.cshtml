@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "GPTSubmitTable1";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GPTSubmitTable1</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Form Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="table-form.js"></script>
+</head>
+<body>
+    <h1>Table Form Example</h1>
+    <form id="table-form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="row1col1"></td>
+                    <td><input type="text" name="row1col2"></td>
+                    <td><input type="text" name="row1col3"></td>
+                    <td>
+                        <select name="row1col4">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row2col1"></td>
+                    <td><input type="text" name="row2col2"></td>
+                    <td><input type="text" name="row2col3"></td>
+                    <td>
+                        <select name="row2col4">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="row3col1"></td>
+                    <td><input type="text" name="row3col2"></td>
+                    <td><input type="text" name="row3col3"></td>
+                    <td>
+                        <select name="row3col4">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" id="add-row-btn">Add Row</button>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+		$(document).ready(function() {
+			$("#add-row-btn").click(function() {
+				var lastRow = $("tbody tr:last");
+				var newRow = lastRow.clone();
+				var rowNumber = parseInt(newRow.find("input:first").attr("name").replace("row", "").replace("col1", "")) + 1;
+				newRow.find("input, select").each(function() {
+					var name = $(this).attr("name");
+					$(this).attr("name", "row" + rowNumber + name.substring(name.indexOf("col")));
+					$(this).val("");
+				});
+				lastRow.after(newRow);
+			});
+		});
+    </script>
+</body>
+</html>
+

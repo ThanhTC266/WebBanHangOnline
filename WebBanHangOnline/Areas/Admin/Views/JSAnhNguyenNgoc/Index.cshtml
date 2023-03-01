@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <table id="tableID" class="table table-condensed">
+        <thead>
+            <tr>
+                <th><label>From Group</lable></th>
+                <th><label>To Group</lable></th>
+                <th><label>Level</lable></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="rowCount">
+                <td>
+                    <select>
+                        <option value="">select</option>
+                        <option value="G1">G1</option>
+                        <option value="G2">G2</option>
+                        <option value="G3">G3</option>
+                        <option value="G4">G4</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="" value="" />
+                </td>
+                <td>
+                    <input type="text" value="" />
+                </td>
+            </tr>
+            <tr id="rowCount">
+                <td>
+                    <select>
+                        <option value="">select</option>
+                        <option value="G1">G1</option>
+                        <option value="G2">G2</option>
+                        <option value="G3">G3</option>
+                        <option value="G4">G4</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" id="" value="" />
+                </td>
+                <td>
+                    <input type="text" value="" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-default generate-btn search-btn white-font border-6 no-border" id="saveDtls">Save</button>
+
+</section>
+
+
+
+@section scripts{
+    <script>
+        //call on click of Save button;
+        $('#saveDtls').click(function (event) {
+            alert('clicked');
+            var TableData = []; //initialize array;
+            var data = ""; //empty var;
+
+            //Here traverse and  read input/select values present in each td of each tr, ;
+            $("table#tableID > tbody > tr").each(function (row, tr) {
+
+                TableData[row] = {
+                    "fromGroup": $('td:eq(0) select', this).val(),
+                    "toGroup": $('td:eq(1) input', this).val(),
+                    "level": $('td:eq(2) input', this).val()
+                };
+
+                //Convert tableData array to JsonData
+                data = JSON.stringify(TableData)
+                //alert('data'+data);
+            });
+        });
+    </script>
+} 
+
+

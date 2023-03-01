@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "GPTSubmitTable4";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GPTSubmitTable4</h2>
+
+<!-- The HTML form -->
+<div class="container">
+    <h1>Input Table</h1>
+    <table id="inputTable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+                <th>Column 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" name="col1[]" class="form-control"></td>
+                <td>
+                    <select name="col2[]" class="form-control">
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                    </select>
+                </td>
+                <td><input type="text" name="col3[]" class="form-control"></td>
+                <td><input type="email" name="col4[]" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="col1[]" class="form-control"></td>
+                <td>
+                    <select name="col2[]" class="form-control">
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                        <option value="Option 3">Option 3</option>
+                    </select>
+                </td>
+                <td><input type="text" name="col3[]" class="form-control"></td>
+                <td><input type="email" name="col4[]" class="form-control"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="submitBtn" class="btn btn-primary">Submit</button>
+</div>
+
+<!-- The JavaScript code to handle the form submission -->
+<script>
+    $(document).ready(function () {
+        $('#submitBtn').click(function () {
+            var inputTableData = [];
+            $('#inputTable tbody tr').each(function () {
+                var rowData = {};
+                rowData.col1 = $(this).find('input[name="col1[]"]').val();
+                rowData.col2 = $(this).find('select[name="col2[]"]').val();
+                rowData.col3 = $(this).find('input[name="col3[]"]').val();
+                rowData.col4 = $(this).find('input[name="col4[]"]').val();
+                inputTableData.push(rowData);
+            });
+            var jsonData = JSON.stringify(inputTableData);
+            $.ajax({
+                url: '/Controller/Action',
+                type: 'POST',
+                dataType: 'json',
+                data: jsonData,
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    // Handle success response
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response
+                }
+            });
+        });
+    });
+</script>

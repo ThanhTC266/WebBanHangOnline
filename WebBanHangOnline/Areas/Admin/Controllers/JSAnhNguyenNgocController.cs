@@ -6,19 +6,16 @@ using System.Web.Mvc;
 
 namespace WebBanHangOnline.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class JSAnhNguyenNgocController : Controller
     {
-        // GET: Admin/Home
+        // GET: Admin/JSAnhNguyenNgoc
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Test()
+        public ActionResult Result()
         {
-            return View();
-        }
-        public ActionResult TestGPT() { 
             return View();
         }
     }

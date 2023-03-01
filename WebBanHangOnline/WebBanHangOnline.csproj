@@ -180,7 +180,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChatGPTController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\JSAnhNguyenNgocController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
@@ -3166,6 +3168,15 @@
     <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Test.cshtml" />
     <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\JSAnhNguyenNgoc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\JSAnhNguyenNgoc\data\result.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\TestGPT.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\GPTSubmitTable1.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\GPTSubmitTable2.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\GPTSubmitTable3.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\GPTSubmitTable4.cshtml" />
+    <Content Include="Areas\Admin\Views\ChatGPT\GPTSubmitTable5.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
